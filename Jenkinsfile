@@ -26,8 +26,8 @@ pipeline {
 
         stage('Clean Build'){
             steps {
-                sh 'rm -r pytorch'
-                sh 'rm -r $BUILD_ROOT/'
+                sh 'rm -rf pytorch'
+                sh 'rm -rf $BUILD_ROOT/'
             }
         }
 
