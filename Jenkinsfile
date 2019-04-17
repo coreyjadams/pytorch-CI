@@ -124,7 +124,6 @@ pipeline {
         }
         // Always clean up after yourself
         always {
-            sh 'ls ./bazel'
             sh "rm -rf $BUILD_ROOT"
             sh 'rm -rf ./pytorch'
             // sh 'rm -rf ./tensorflow'
