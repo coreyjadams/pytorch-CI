@@ -8,7 +8,7 @@ export ENVIRON_BASE=$(dirname $(dirname $(which python)))
 which python
 python --version
 
-
+cd pytorch
 
 #------------------------------------------------------------------------------
 # This is for building pytorch on Theta, contact me if you find any issue
