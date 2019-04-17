@@ -14,8 +14,8 @@ pipeline {
     environment {
         BASE_PYTHON = 'intelpython35/2017.0.035'
         PROGRAMMING_ENV = 'PrgEnv-gnu'
-        BUILD_ROOT = '/projects/datascience/jenkins-test/tensorflow-build'
-        RELEASE_ROOT = '/projects/datascience/jenkins-test/tensorflow-release'
+        BUILD_ROOT = '/projects/datascience/jenkins-test/pytorch-build'
+        RELEASE_ROOT = '/projects/datascience/jenkins-test/pytorch-release'
         QSTAT_HEADER = 'JobId:User:JobName'
     }
 
