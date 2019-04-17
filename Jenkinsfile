@@ -24,6 +24,13 @@ pipeline {
     * failure to either retry or abort steps in the pipeline. */
     stages {
 
+        stage('Clean Build'){
+            steps {
+                sh 'rm -r pytorch'
+                sh 'rm -r $BUILD_ROOT/'
+            }
+        }
+
         // Create virtualenv based on Cray Python 3.6
         // ------------------------------------------
         stage('Virtualenv Setup') {
