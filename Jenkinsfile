@@ -130,9 +130,9 @@ pipeline {
             sh 'rm -rf ./pytorch'
             // sh 'rm -rf ./tensorflow'
             sh '''
-            rm *.output
-            rm *.error
-            rm *.cobaltlog
+            rm -f *.output
+            rm -f *.error
+            rm -f *.cobaltlog
             '''
             deleteDir()
         }
