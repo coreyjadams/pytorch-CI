@@ -36,9 +36,11 @@ pipeline {
 
         // Since pytorch compiles on the compute nodes, fetch it from the login nodes
         stage('Fetch pytorch') {
-            sh 'pwd'
-            sh 'ls'
-            sh '. ./fetch-pytorch.sh'
+            steps {
+                sh 'pwd'
+                sh 'ls'
+                sh '. ./fetch-pytorch.sh'
+            }
         }
 
         // Build bazel
