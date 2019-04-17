@@ -48,4 +48,4 @@ cat torch_install.out
 echo "Torch install script completed"
 
 
-touch $COBALT_JOBID.finished
+touch ${BUILD_ROOT}/${COBALT_JOBID}.finished

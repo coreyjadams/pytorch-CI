@@ -66,7 +66,7 @@ pipeline {
                 // Keep checking until a ${cobalt_id}.finished file appears
                 echo "Submitted Job to cobalt (ID ${cobalt_id}). Polling on completion..."
                 timeout(time: 24, unit: 'HOURS') {
-                   sh "while [ ! -f ${cobalt_id}.finished ]; do sleep 5; done"
+                   sh "while [ ! -f ${BUILD_ROOT}/${cobalt_id}.finished ]; do sleep 5; done"
                 }
                 echo "Job completed; checking output..."
                 sh "cat ${cobalt_id}.output"
@@ -121,6 +121,8 @@ pipeline {
             mail to: 'corey.adams@anl.gov',
              subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
              body: "Something is wrong with ${env.BUILD_URL}"
+            sh 'cat *.output'
+            sh 'cat *.error'
         }
         // Always clean up after yourself
         always {
