@@ -31,18 +31,18 @@ module swap PrgEnv-intel PrgEnv-gnu
 #  This is the build command:
 aprun -n 1 -cc none -j 0 -e CFLAGS='-mtune=knl -march=knl -pipe' \
 -e CRAYPE_LINK_TYPE=dynamic -e CC=$(which gcc) -e CXX=$(which g++) \
--e MPICH_CC=$(which cc) -e MPICH_CXX=$(which CC) -b python setup.py build >& torch_build.out
+-e MPICH_CC=$(which cc) -e MPICH_CXX=$(which CC) -b python setup.py build >& ${BUILD_ROOT}/${COBALT_JOBID}_torch_build.out
 
-cat torch_build.out
+cat ${BUILD_ROOT}/${COBALT_JOBID}_torch_build.out
 
 #aprun -n 1 -cc none -j 0 -e CFLAGS='-mtune=knl -march=knl -pipe' -e CRAYPE_LINK_TYPE=dynamic -e CC=$(which gcc) -e CXX=$(which g++) -e MPICH_CC=$(which cc) -e MPICH_CXX=$(which CC) -b python setup.py install --prefix=/soft/datascience/pytorch
 
 aprun -n 1 -cc none -j 0 -e CFLAGS='-mtune=knl -march=knl -pipe' \
 -e CRAYPE_LINK_TYPE=dynamic -e CC=$(which gcc) -e CXX=$(which g++) \
 -e MPICH_CC=$(which cc) -e MPICH_CXX=$(which CC) -b \
-python setup.py install --prefix=$PLACE_YOU_WANT_TO_INSTALL >& torch_install.out
+python setup.py install --prefix=$PLACE_YOU_WANT_TO_INSTALL >& ${BUILD_ROOT}/${COBALT_JOBID}_torch_install.out
 
-cat torch_install.out
+cat ${BUILD_ROOT}/${COBALT_JOBID}_torch_install.out
 
 
 echo "Torch install script completed"
