@@ -69,10 +69,9 @@ pipeline {
                    sh "while [ ! -f ${BUILD_ROOT}/${cobalt_id}.finished ]; do sleep 5; done"
                 }
                 echo "Job completed; checking output..."
-                sh "cat ${cobalt_id}.output"
 
                 // grep -q will return 0 (success) only if there is a match:
-                sh "grep -q 'Torch installed successfully' ${cobalt_id}.output"
+                sh "grep -q 'Torch installed successfully' ${BUILD_ROOT}/${cobalt_id}.output"
             }
         }
 

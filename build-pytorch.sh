@@ -29,6 +29,7 @@ unset LD_LIBRARY_PATH
 # Set up envirnoment:
 module load $BASE_PYTHON
 module load intelpython35/2017.0.035
+module load gcc/7.3.0
 module swap PrgEnv-intel PrgEnv-gnu
 #  This is the build command:
 aprun -n 1 -cc none -j 0 -e CFLAGS='-mtune=knl -march=knl -pipe' \
