@@ -28,6 +28,7 @@ unset LD_LIBRARY_PATH
 #rm -rf build
 # Set up envirnoment:
 module load $BASE_PYTHON
+module load intelpython35/2017.0.035
 module swap PrgEnv-intel PrgEnv-gnu
 #  This is the build command:
 aprun -n 1 -cc none -j 0 -e CFLAGS='-mtune=knl -march=knl -pipe' \
@@ -49,4 +50,4 @@ cat ${BUILD_ROOT}/${COBALT_JOBID}_torch_install.out
 echo "Torch install script completed"
 
 
-touch ${BUILD_ROOT}/$ {COBALT_JOBID}.finished
+touch ${BUILD_ROOT}/${COBALT_JOBID}.finished
