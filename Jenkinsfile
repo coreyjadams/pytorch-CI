@@ -60,7 +60,7 @@ pipeline {
                 // use the "script" step to embed old-fashioned Jenkins procedural scripting
                 // this way, we can conveniently "capture" the Cobalt job ID from tail of stdout
                 script {
-                    cobalt_id = sh(returnStdout: true, script: 'qsub -A datascience -n 1 -t 60 -q debug-flat-quad ./build-pytorch.sh | tail -n 1').trim()
+                    cobalt_id = sh(returnStdout: true, script: 'qsub -A datascience -n 1 -t 60 -q debug-flat-quad -o $BUILD_ROOT/pytorch-build.output -e $BUILD_ROOT/pytorch-build.error ./build-pytorch.sh | tail -n 1').trim()
                 }
 
                 // Keep checking until a ${cobalt_id}.finished file appears
@@ -88,7 +88,7 @@ pipeline {
                 // use the "script" step to embed old-fashioned Jenkins procedural scripting
                 // this way, we can conveniently "capture" the Cobalt job ID from tail of stdout
                 script {
-                    cobalt_id = sh(returnStdout: true, script: 'qsub -A datascience -n 1 -t 10 -q debug-flat-quad ./test-torch.sh | tail -n 1').trim()
+                    cobalt_id = sh(returnStdout: true, script: 'qsub -A datascience -n 1 -t 10 -q debug-flat-quad  ./test-torch.sh | tail -n 1').trim()
                 }
 
                 // Keep checking until a ${cobalt_id}.finished file appears
