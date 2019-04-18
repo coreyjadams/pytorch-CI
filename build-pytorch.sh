@@ -1,6 +1,7 @@
 #!/bin/bash -x
 
-
+BUILD_ROOT=$(cat BUILD_ROOT.path)
+echo "BUILD_ROOT is ${BUILD_ROOT}"
 
 # Activate the virtual env:
 . $BUILD_ROOT/env/bin/activate
@@ -48,4 +49,4 @@ cat ${BUILD_ROOT}/${COBALT_JOBID}_torch_install.out
 echo "Torch install script completed"
 
 
-touch ${BUILD_ROOT}/${COBALT_JOBID}.finished
+touch ${BUILD_ROOT}/$ {COBALT_JOBID}.finished
